@@ -1,0 +1,293 @@
+/* ── lightMobile.css — mobile theme (max-width: 899px) ──────────────────── */
+
+/* ── Base ────────────────────────────────────────────────────────────────── */
+body {
+    background-color: #ffffff;
+    color: #00011C;
+}
+
+body a {
+    text-decoration: none;
+    color: #00011C;
+}
+
+button {
+    background-color: #E6C79C;
+    color: #00011C;
+    border: 1px solid #00011C;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* ── Layout ──────────────────────────────────────────────────────────────── */
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex {
+    display: flex;
+}
+
+/* On mobile, main and aside stack full-width */
+main, aside {
+    width: 90%;
+    margin: auto;
+}
+
+/* ── Alignment helpers ───────────────────────────────────────────────────── */
+.right {
+    text-align: right;
+    margin: 10px;
+}
+
+.left {
+    text-align: left;
+    margin: 10px;
+}
+
+.inline {
+    display: inline;
+}
+
+/* ── Auth container (login / register) ───────────────────────────────────── */
+.container {
+    margin: 13% auto;
+    padding: 5px;
+    background: #ffffff;
+    border: 2px solid #00011C;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+/* ── Posts ───────────────────────────────────────────────────────────────── */
+.post {
+    border: 2px solid #00011C;
+    border-radius: 10px;
+    background-color: #FFF9DE;
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+.username {
+    color: #3C0075;
+}
+
+.comments a {
+    color: #3C0075;
+}
+
+#postImage {
+    height: 100px;
+}
+
+/* ── Comments ────────────────────────────────────────────────────────────── */
+.comment {
+    border: 2px solid #00011C;
+    padding: 10px;
+    width: 90%;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+#commentcont {
+    width: 90%;
+    height: 5em;
+    background-color: #FFF9DE;
+    color: #00011C;
+}
+
+textarea {
+    width: 100%;
+    max-width: 100%;
+    background: #FFF9DE;
+    color: #00011C;
+    border-radius: 5px;
+    border: 1px solid #00011C;
+    padding: 15px;
+    resize: none;
+    margin: 10px 0;
+}
+
+#submit {
+    height: 4em;
+    width: 4em;
+    background-color: #00011C;
+    color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #00011C;
+}
+
+/* ── Filters sidebar ─────────────────────────────────────────────────────── */
+.filters {
+    width: 90%;
+    border: 1px solid #00011C;
+    padding: 10px;
+    margin: 10px auto;
+    height: fit-content;
+    border-radius: 10px;
+}
+
+.filbut {
+    padding: 10px 0;
+    width: 100%;
+    border-radius: 10px;
+    background: #E6C79C;
+    margin: 2% auto;
+    color: #00011C;
+    border: 1px solid #00011C;
+    text-align: center;
+}
+
+/* ── User sidebar ────────────────────────────────────────────────────────── */
+.user {
+    display: flex;
+    border: 1px solid #00011C;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* ── Profile page ────────────────────────────────────────────────────────── */
+.profile {
+    width: 90%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+    height: 120px;
+    padding: 20px;
+}
+
+.profilePicContainer,
+.profilePic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.adminBadge {
+    background-color: #3C0075;
+    color: #ffffff;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.background {
+    background-color: #ffffff;
+}
+
+/* ── Dropdown menu ───────────────────────────────────────────────────────── */
+.dropbtn {
+    background-color: #FFF9DE;
+    color: #00011C;
+    padding: 10px;
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    background-color: #FFF9DE;
+    display: none;
+    position: absolute;
+    min-width: 150px;
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    padding: 10px 16px;
+    display: block;
+    color: #00011C;
+}
+
+.dropdown-content a:hover {
+    background-color: #E6C79C;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* ── Search ──────────────────────────────────────────────────────────────── */
+.search-input {
+    background-color: #FFF9DE;
+    color: #00011C;
+    padding: 10px;
+    font-size: 10px;
+    border: none;
+    border-radius: 5px;
+    max-width:50%;
+}
+
+.search-button {
+    background-color: #FFF9DE;
+    color: #00011C;
+    padding: 10px;
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+}
+
+.search{
+    display:flex;
+    flex-wrap:nowrap;
+}
+/* ── Settings page ───────────────────────────────────────────────────────── */
+.settings-container {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.setting-group {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.setting-group h2 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.setting-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.setting-label {
+    font-weight: 600;
+}
+
+.setting-input {
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color, #555);
+}
+
+.setting-submit {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.danger-zone {
+    border: 1px solid #a00;
+}
+
+.delete-btn {
+    background: #a00;
+    color: white;
+}

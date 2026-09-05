@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vibez | Welcome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #27073B;
+            --bg2: #1a0428;
+            --accent: #B68CB8;
+            --accent2: #053C61;
+            --text: #EAE0CC;
+            --text-dim: #a09080;
+            --btn: #053C61;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ── NOISE TEXTURE OVERLAY ── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── NAV ── */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 48px;
+            position: relative;
+            z-index: 10;
+            border-bottom: 1px solid rgba(182,140,184,0.15);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--accent);
+            letter-spacing: -0.02em;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.9rem;
+            padding: 9px 22px;
+            border-radius: 50px;
+            border: 1px solid rgba(234,224,204,0.25);
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            background: rgba(182,140,184,0.15);
+            border-color: var(--accent);
+        }
+
+        .nav-links a.cta {
+            background: var(--accent2);
+            border-color: var(--accent2);
+        }
+
+        .nav-links a.cta:hover {
+            background: #065080;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative;
+            z-index: 1;
+            min-height: 88vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 24px;
+            overflow: hidden;
+        }
+
+        /* Glowing orbs */
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px; height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(182,140,184,0.18) 0%, transparent 70%);
+            top: -100px; left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px; height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(5,60,97,0.35) 0%, transparent 70%);
+            bottom: 0; right: 10%;
+            pointer-events: none;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards 0.2s;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3.5rem, 9vw, 7rem);
+            font-weight: 900;
+            line-height: 1.0;
+            letter-spacing: -0.03em;
+            margin-bottom: 28px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards 0.4s;
+        }
+
+        .hero-title span {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .hero-sub {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: var(--text-dim);
+            max-width: 480px;
+            line-height: 1.7;
+            margin-bottom: 48px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards 0.6s;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards 0.8s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg2);
+            padding: 14px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            letter-spacing: 0.01em;
+        }
+
+        .btn-primary:hover {
+            background: #c9a5cb;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(182,140,184,0.35);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(234,224,204,0.3);
+            color: var(--text);
+            padding: 14px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* ── FEATURES STRIP ── */
+        .features {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1px;
+            background: rgba(182,140,184,0.12);
+            border-top: 1px solid rgba(182,140,184,0.12);
+            border-bottom: 1px solid rgba(182,140,184,0.12);
+        }
+
+        .feature-card {
+            background: var(--bg);
+            padding: 48px 36px;
+            text-align: center;
+            transition: background 0.2s;
+        }
+
+        .feature-card:hover {
+            background: rgba(5,60,97,0.35);
+        }
+
+        .feature-icon {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .feature-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .feature-desc {
+            font-size: 0.88rem;
+            color: var(--text-dim);
+            line-height: 1.65;
+        }
+
+        /* ── QUOTE BAND ── */
+        .quote-band {
+            position: relative;
+            z-index: 1;
+            padding: 100px 24px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(5,60,97,0.2) 0%, rgba(182,140,184,0.08) 100%);
+        }
+
+        .quote-band blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 4vw, 2.4rem);
+            font-style: italic;
+            font-weight: 700;
+            max-width: 780px;
+            margin: 0 auto 20px;
+            line-height: 1.4;
+            color: var(--text);
+        }
+
+        .quote-band cite {
+            font-size: 0.85rem;
+            color: var(--accent);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 48px;
+            border-top: 1px solid rgba(182,140,184,0.15);
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        footer a {
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer a:hover { color: var(--accent); }
+
+        .footer-links { display: flex; gap: 24px; }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── MOBILE ── */
+        @media (max-width: 700px) {
+            nav { padding: 18px 20px; }
+            footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+            .footer-links { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#" class="nav-logo"><img id="logo" src="/project/assets/images/vibezNight.png" style="width: 100px; height: auto;"></a>
+    <div class="nav-links">
+        <a href="help.html">Help</a>
+        <a href="about.html">About</a>
+        <a href="/project/login.php">Sign in</a>
+        <a href="/project/users/newUser.php" class="cta">Join</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <p class="hero-eyebrow">Your space to connect</p>
+    <h1 class="hero-title">Share your <span>Vibez</span><br>with the world.</h1>
+    <p class="hero-sub">A social platform built for <em>real</em> connections</p>
+    <div class="hero-actions">
+        <a href="/project/users/newUser.php" class="btn-primary">Get started — it's free</a>
+        <a href="/project/login.php" class="btn-secondary">Sign in</a>
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature-card">
+        <span class="feature-icon">✦</span>
+        <h3 class="feature-title">Post anything</h3>
+        <p class="feature-desc">Share text, photos, and videos with your followers and friends in seconds. Your thoughts, your way.</p>
+    </div>
+    <div class="feature-card">
+        <span class="feature-icon">◈</span>
+        <h3 class="feature-title">Real connections</h3>
+        <p class="feature-desc">Follow people you care about. Mutual follows become friendships and filtered feeds keep your circle close.</p>
+    </div>
+    <div class="feature-card">
+        <span class="feature-icon">❋</span>
+        <h3 class="feature-title">Make it yours</h3>
+        <p class="feature-desc">Customize your profile's colors, background, and picture. Your profile page is a canvas.</p>
+    </div>
+    <div class="feature-card">
+        <span class="feature-icon">◉</span>
+        <h3 class="feature-title">Light & dark</h3>
+        <p class="feature-desc">Switch between light and dark mode at any time, from any page. Your eyes will thank you.</p>
+    </div>
+</section>
+
+<section class="quote-band">
+    <blockquote>"The best social spaces feel like coming home."</blockquote>
+    <cite>The Vibez Team</cite>
+</section>
+
+<footer>
+    <span>© 2026 Vibez. All rights reserved.</span>
+    <div class="footer-links">
+        <a href="updates.html">Updates</a>
+        <a href="todo.html">To Do List</a>
+        <a href="about.html">About us</a>
+        <a href="help.html">Help</a>
+        <a href="/project/policies/privacy.php">Privacy</a>
+        <a href="/project/policies/terms.php">Terms</a>
+        <a href="/project/policies/cookies.php">Cookies</a>
+    </div>
+</footer>
+
+</body>
+</html>

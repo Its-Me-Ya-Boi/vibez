@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vibez | Help</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #27073B;
+            --bg2: #1a0428;
+            --panel: #1e0530;
+            --accent: #B68CB8;
+            --accent2: #053C61;
+            --text: #EAE0CC;
+            --text-dim: #9e8e7e;
+            --border: rgba(182,140,184,0.18);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* NAV */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 48px;
+            position: relative;
+            z-index: 10;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-links { display: flex; gap: 12px; }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.9rem;
+            padding: 9px 22px;
+            border-radius: 50px;
+            border: 1px solid rgba(234,224,204,0.25);
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(182,140,184,0.15);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* HERO */
+        .page-hero {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 80px 24px 60px;
+        }
+
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .page-hero h1 span { color: var(--accent); font-style: italic; }
+
+        .page-hero p {
+            font-size: 1.05rem;
+            color: var(--text-dim);
+            max-width: 460px;
+            margin: 0 auto;
+            line-height: 1.7;
+            animation: fadeUp 0.6s ease forwards 0.15s;
+            opacity: 0;
+        }
+
+        /* SEARCH BAR */
+        .search-wrap {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            padding: 0 24px 60px;
+        }
+
+        .search-wrap input {
+            width: 100%;
+            max-width: 520px;
+            padding: 14px 20px;
+            background: rgba(5,60,97,0.25);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-wrap input::placeholder { color: var(--text-dim); }
+        .search-wrap input:focus { border-color: var(--accent); }
+
+        /* MAIN CONTENT */
+        .help-layout {
+            position: relative;
+            z-index: 1;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 24px 100px;
+            display: flex;
+            gap: 40px;
+        }
+
+        /* SIDEBAR NAV */
+        .help-sidebar {
+            width: 200px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 30px;
+            align-self: flex-start;
+        }
+
+        .help-sidebar h4 {
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 14px;
+        }
+
+        .help-sidebar ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .help-sidebar a {
+            text-decoration: none;
+            color: var(--text-dim);
+            font-size: 0.88rem;
+            padding: 6px 12px;
+            border-radius: 6px;
+            display: block;
+            transition: all 0.15s;
+        }
+
+        .help-sidebar a:hover {
+            color: var(--accent);
+            background: rgba(182,140,184,0.1);
+        }
+
+        /* FAQ SECTIONS */
+        .help-content { flex: 1; min-width: 0; }
+
+        .faq-section { margin-bottom: 56px; }
+
+        .faq-section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* ACCORDION */
+        details {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            background: rgba(5,60,97,0.12);
+            overflow: hidden;
+            transition: background 0.2s;
+        }
+
+        details[open] {
+            background: rgba(5,60,97,0.25);
+            border-color: rgba(182,140,184,0.35);
+        }
+
+        summary {
+            padding: 18px 22px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        summary::-webkit-details-marker { display: none; }
+
+        summary::after {
+            content: '+';
+            color: var(--accent);
+            font-size: 1.3rem;
+            font-weight: 300;
+            transition: transform 0.25s;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .answer {
+            padding: 0 22px 20px;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            line-height: 1.75;
+        }
+
+        .answer a {
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .answer code {
+            background: rgba(182,140,184,0.15);
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+
+        /* STILL STUCK BANNER */
+        .still-stuck {
+            position: relative;
+            z-index: 1;
+            margin: 0 24px 80px;
+            max-width: 860px;
+            margin-left: auto;
+            margin-right: auto;
+            background: linear-gradient(135deg, rgba(5,60,97,0.4), rgba(182,140,184,0.12));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 48px;
+            text-align: center;
+        }
+
+        .still-stuck h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .still-stuck p {
+            color: var(--text-dim);
+            margin-bottom: 26px;
+            font-size: 0.92rem;
+        }
+
+        .still-stuck a {
+            background: var(--accent);
+            color: var(--bg2);
+            padding: 12px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .still-stuck a:hover {
+            background: #c9a5cb;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 28px 48px;
+            border-top: 1px solid var(--border);
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        footer a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+        footer a:hover { color: var(--accent); }
+        .footer-links { display: flex; gap: 24px; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 680px) {
+            nav { padding: 18px 20px; }
+            .help-layout { flex-direction: column; }
+            .help-sidebar { width: 100%; position: static; }
+            footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+            .footer-links { justify-content: center; }
+            .still-stuck { padding: 32px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo"><img id="logo" src="/project/assets/images/vibezNight.png" style="width: 100px; height: auto;"></a>
+    <div class="nav-links">
+        <a href="help.html" class="active">Help</a>
+        <a href="about.html">About</a>
+        <a href="/project/login.php">Sign in</a>
+    </div>
+</nav>
+
+<div class="page-hero">
+    <h1>How can we <span>help?</span></h1>
+    <p>Browse answers to common questions below, or search for what you're looking for.</p>
+</div>
+
+<div class="search-wrap">
+    <input type="text" id="searchInput" placeholder="Search questions…" oninput="filterFAQ(this.value)">
+</div>
+
+<div class="help-layout">
+    <nav class="help-sidebar">
+        <h4>Jump to</h4>
+        <ul>
+            <li><a href="#getting-started">Getting started</a></li>
+            <li><a href="#account">Account & profile</a></li>
+            <li><a href="#posts">Posts & media</a></li>
+            <li><a href="#social">Following & friends</a></li>
+            <li><a href="#privacy">Privacy & safety</a></li>
+            <li><a href="#technical">Technical issues</a></li>
+        </ul>
+    </nav>
+
+    <div class="help-content" id="faqContent">
+
+        <!-- GETTING STARTED -->
+        <section class="faq-section" id="getting-started">
+            <h2 class="faq-section-title">Getting started</h2>
+
+            <details>
+                <summary>How do I create a Vibez account?</summary>
+                <div class="answer">
+                    Head to the <a href="/project/users/newUser.php">registration page</a> and fill in your desired username, email address, and a password. Once submitted you'll be taken straight to your feed — no email confirmation required.
+                </div>
+            </details>
+
+            <details>
+                <summary>What does Vibez cost?</summary>
+                <div class="answer">
+                    Nothing — Vibez is completely free to join and use. There are no paid tiers or hidden charges. Ads may be added in the future to support the platform, but a one-time payment option will be available.
+                </div>
+            </details>
+
+            <details>
+                <summary>I just signed up. Where do I start?</summary>
+                <div class="answer">
+                    We recommend three things right away: upload a profile picture in <a href="/project/settings/set.php">Settings</a>, make your first post using the <strong>post</strong> menu in the header, and follow a few people from the sidebar on your feed.
+                </div>
+            </details>
+
+            <details>
+                <summary>What browsers does Vibez support?</summary>
+                <div class="answer">
+                    Any modern browser works — Chrome, Firefox, Safari, and Edge are all fully supported. Vibez is also mobile-friendly and adapts to smaller screens automatically.
+                </div>
+            </details>
+        </section>
+
+        <!-- ACCOUNT & PROFILE -->
+        <section class="faq-section" id="account">
+            <h2 class="faq-section-title">Account &amp; profile</h2>
+
+            <details>
+                <summary>How do I change my username?</summary>
+                <div class="answer">
+                    Go to <a href="/project/settings/set.php">Settings</a> and fill in the "Change username" field, then hit submit. Your new name will appear on all your existing posts immediately.
+                </div>
+            </details>
+
+            <details>
+                <summary>How do I update my profile picture?</summary>
+                <div class="answer">
+                    In <a href="/project/settings/set.php">Settings</a>, click "Pick profile image," choose a JPG, PNG, or GIF file from your device, and submit. Supported formats: <code>jpg</code>, <code>jpeg</code>, <code>png</code>, <code>gif</code>.
+                </div>
+            </details>
+
+            <details>
+                <summary>Can I customize the colors on my profile page?</summary>
+                <div class="answer">
+                    Yes! Settings lets you pick colors for your background, buttons, posts, comments, text, and username separately. You can also upload a background image. Changes apply only to your profile page and are visible to anyone who visits it.
+                </div>
+            </details>
+
+            <details>
+                <summary>How do I change my password or email?</summary>
+                <div class="answer">
+                    Both can be updated from the <a href="/project/settings/set.php">Settings</a> page — look for the "Change password" and "Change email" forms. Passwords are stored securely and are never visible to administrators.
+                </div>
+            </details>
+
+            <details>
+                <summary>How do I delete my account?</summary>
+                <div class="answer">
+                    Scroll to the bottom of the <a href="/project/settings/set.php">Settings</a> page and click the <strong>Delete</strong> button. This action is permanent — all your posts, comments, and profile data will be removed.
+                </div>
+            </details>
+        </section>
+
+        <!-- POSTS & MEDIA -->
+        <section class="faq-section" id="posts">
+            <h2 class="faq-section-title">Posts &amp; media</h2>
+
+            <details>
+                <summary>What kinds of posts can I make?</summary>
+                <div class="answer">
+                    Three types: a plain text post, a post with an attached image, or a post with an attached video. Use the <strong>post</strong> dropdown in the navigation header to choose.
+                </div>
+            </details>
+
+            <details>
+                <summary>What file types and sizes are allowed?</summary>
+                <div class="answer">
+                    Images: <code>jpg</code>, <code>jpeg</code>, <code>png</code>, <code>gif</code>. Videos: <code>mp4</code>, <code>mov</code>. The maximum file size is <strong>20 MB</strong>. Files exceeding this limit will not upload.
+                </div>
+            </details>
+
+            <details>
+                <summary>Can I delete a post after publishing?</summary>
+                <div class="answer">
+                    Yes. Click the <strong>delete</strong> link at the bottom-right of any of your own posts. You'll be asked to confirm before the post is permanently removed.
+                </div>
+            </details>
+
+            <details>
+                <summary>How do comments work?</summary>
+                <div class="answer">
+                    Click "View comments" under any post to open the comments page. Type your comment in the box and press submit. All logged-in users can comment on any post. You can delete any comment from the comment view.
+                </div>
+            </details>
+        </section>
+
+        <!-- SOCIAL -->
+        <section class="faq-section" id="social">
+            <h2 class="faq-section-title">Following &amp; friends</h2>
+
+            <details>
+                <summary>What's the difference between following and friends?</summary>
+                <div class="answer">
+                    <strong>Following</strong> is one-directional — you follow someone and see their posts. <strong>Friends</strong> are mutual: when two users each follow the other, they become friends. The <em>friends filter</em> on the main feed shows only posts from mutual connections.
+                </div>
+            </details>
+
+            <details>
+                <summary>How do I follow someone?</summary>
+                <div class="answer">
+                    Visit their profile page (click their name anywhere on the site) and tap the <strong>follow</strong> button. The button will change to "following" to confirm. Tap it again at any time to unfollow.
+                </div>
+            </details>
+
+            <details>
+                <summary>What are the feed filters?</summary>
+                <div class="answer">
+                    The left sidebar on the main feed has four filters: <strong>close friends</strong>, <strong>friends</strong> (mutual follows), <strong>following</strong> (everyone you follow), and <strong>everyone</strong> (the full public feed).
+                </div>
+            </details>
+        </section>
+
+        <!-- PRIVACY & SAFETY -->
+        <section class="faq-section" id="privacy">
+            <h2 class="faq-section-title">Privacy &amp; safety</h2>
+
+            <details>
+                <summary>Who can see my posts?</summary>
+                <div class="answer">
+                    All posts are visible to everyone on Vibez who is logged in. There are currently no private or restricted-visibility posts — all content is public within the platform.
+                </div>
+            </details>
+
+            <details>
+                <summary>Can I report or block a user?</summary>
+                <div class="answer">
+                    If you encounter abusive behavior, please contact a site administrator directly. Admins have the ability to ban accounts. A self-service report feature is on our roadmap.
+                </div>
+            </details>
+
+            <details>
+                <summary>How do I switch between light and dark mode?</summary>
+                <div class="answer">
+                    Click the <strong>light/dark mode</strong> button in <a href="/project/settings/set.php">Settings</a>. Your preference is saved in your browser and will persist across sessions.
+                </div>
+            </details>
+        </section>
+
+        <!-- TECHNICAL -->
+        <section class="faq-section" id="technical">
+            <h2 class="faq-section-title">Technical issues</h2>
+
+            <details>
+                <summary>My file won't upload</summary>
+                <div class="answer">
+                    Check that: (1) the file is under 20 MB, (2) the format is supported (<code>jpg</code>, <code>png</code>, <code>gif</code>, <code>mp4</code>, or <code>mov</code>), and (3) a file with the same name doesn't already exist on the server. Try renaming the file if the problem persists.
+                </div>
+            </details>
+
+            <details>
+                <summary>The page looks broken or unstyled.</summary>
+                <div class="answer">
+                    Try a hard refresh: <code>Ctrl + Shift + R</code> (Windows/Linux) or <code>Cmd + Shift + R</code> (Mac). If the problem persists, clear your browser cache and try again. Still broken? Reach out to the team.
+                </div>
+            </details>
+
+            <details>
+                <summary>I was logged out unexpectedly.</summary>
+                <div class="answer">
+                    Vibez sessions expire when you close your browser tab. Simply sign in again. If you're being logged out mid-session, check that your browser accepts cookies from this site.
+                </div>
+            </details>
+
+            <details>
+                <summary>Light/dark mode isn't saving between pages.</summary>
+                <div class="answer">
+                    Vibez uses <code>localStorage</code> to remember your preference. Make sure your browser isn't set to clear storage on close, and that you haven't blocked local storage for this site.
+                </div>
+            </details>
+        </section>
+
+    </div>
+</div>
+
+<div class="still-stuck">
+    <h3>Still stuck?</h3>
+    <p>Can't find what you're looking for? Reach out and we'll get back to you.</p>
+    <a href="about.html#contact">Contact us</a>
+</div>
+
+<footer>
+    <span>© 2026 Vibez. All rights reserved.</span>
+    <div class="footer-links">
+        <a href="updates.html">Updates</a>
+        <a href="todo.html">To Do List</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About us</a>
+        <a href="/project/policies/privacy.php">Privacy</a>
+        <a href="/project/policies/terms.php">Terms</a>
+        <a href="/project/policies/cookies.php">Cookies</a>
+    </div>
+</footer>
+
+<script>
+function filterFAQ(query) {
+    const q = query.toLowerCase().trim();
+    const allDetails = document.querySelectorAll('#faqContent details');
+    const sections = document.querySelectorAll('.faq-section');
+
+    allDetails.forEach(d => {
+        const text = d.textContent.toLowerCase();
+        d.style.display = (!q || text.includes(q)) ? '' : 'none';
+    });
+
+    // Hide section headers if all their questions are hidden
+    sections.forEach(s => {
+        const visible = [...s.querySelectorAll('details')].some(d => d.style.display !== 'none');
+        s.style.display = visible ? '' : 'none';
+    });
+
+    // Open matching ones automatically
+    if (q) {
+        allDetails.forEach(d => {
+            if (d.style.display !== 'none') d.open = true;
+        });
+    } else {
+        allDetails.forEach(d => d.open = false);
+    }
+}
+</script>
+
+</body>
+</html>

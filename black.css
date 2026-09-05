@@ -1,0 +1,399 @@
+/* ── black.css — desktop theme (min-width: 900px) ───────────────────────── */
+
+/* ── Base ────────────────────────────────────────────────────────────────── */
+body {
+    background-color: #000000;
+    color: #EDEDED;
+}
+
+body a {
+    text-decoration: none;
+    color: #EDEDED;
+}
+
+button {
+    background-color: #121212;
+    color: #FFFFFF;
+    border: 1px solid #333333;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* ── Layout ──────────────────────────────────────────────────────────────── */
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex {
+    display: flex;
+}
+
+.flexDesk {
+    display: flex;
+}
+
+main {
+    width: 80%;
+    border-radius: 10px;
+}
+
+aside {
+    width: 20%;
+    border-radius: 10px;
+}
+
+/* ── Alignment helpers ───────────────────────────────────────────────────── */
+.right {
+    text-align: right;
+    margin: 10px;
+}
+
+.left {
+    text-align: left;
+    margin: 10px;
+}
+
+.center {
+    text-align: center;
+}
+
+.inline {
+    display: inline;
+}
+
+/* ── Auth container (login / register) ───────────────────────────────────── */
+.container {
+    margin: 13% auto;
+    padding: 5px;
+    background: #0A0A0A;
+    border: 2px solid #EDEDED;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+/* ── New-user prompt ─────────────────────────────────────────────────────── */
+#newUser {
+    padding: 30px;
+    margin: 23% auto;
+    text-align: center;
+    border: 2px solid #EDEDED;
+    border-radius: 10px;
+    width: 30%;
+    height: 30%;
+}
+
+/* ── Posts ───────────────────────────────────────────────────────────────── */
+.post {
+    border: 2px solid #111111;
+    background-color: #121212;
+    color: #FFFFFF;
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.post a {
+    color: #FFFFFF;
+}
+
+.username {
+    color: #9B5CFF;
+}
+
+.message p {
+    font-size: 1rem;
+}
+
+.large {
+    font-size: 0.75rem;
+}
+
+#postImage {
+    height: 250px;
+}
+
+/* ── Comments ────────────────────────────────────────────────────────────── */
+.comments a {
+    color: #9B5CFF;
+}
+
+.comment {
+    border: 2px solid #111111;
+    padding: 10px;
+    width: 80%;
+    border-radius: 10px;
+    background: #0A0A0A;
+}
+
+#commentcont {
+    width: 75%;
+    height: 5em;
+    background-color: #121212;
+    color: #FFFFFF;
+}
+
+textarea {
+    height: auto;
+    max-width: 600px;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 20px;
+    width: 100%;
+    background: #121212;
+    border-radius: 3px;
+    border: 1px solid #333333;
+    padding: 30px;
+    line-height: 2em;
+    resize: none;
+    margin: 10px;
+    flex: 1 1 100%;
+}
+
+#submit {
+    height: 5em;
+    width: 5em;
+    color: #FFFFFF;
+    background-color: #000000;
+    margin-left: 20%;
+    margin-top: 30px;
+    flex: 0 0 auto;
+    border-radius: 3px;
+    border: 1px solid #444444;
+}
+
+#photoType {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* ── Filters sidebar ─────────────────────────────────────────────────────── */
+.filters {
+    width: 20%;
+    border: 1px solid #EDEDED;
+    padding: 10px;
+    margin: 10px;
+    height: fit-content;
+    border-radius: 10px;
+}
+
+.filbut {
+    padding: 10px 0;
+    width: 100%;
+    border-radius: 10px;
+    background: #121212;
+    margin: 2% auto;
+    color: #FFFFFF;
+    border: 1px solid #333333;
+    text-align: center;
+}
+
+/* ── User sidebar ────────────────────────────────────────────────────────── */
+.user {
+    display: flex;
+    flex-wrap: nowrap;
+    border: 1px solid #EDEDED;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+/* ── Profile page ────────────────────────────────────────────────────────── */
+.profile {
+    display: flex;
+    width: 90%;
+    margin: 10px auto;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    height: 300px;
+    padding: 50px;
+    padding-top: 150px;
+    margin-bottom: 20px;
+}
+
+.profilePicContainer {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profilePic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.adminBadge {
+    background-color: #9B5CFF;
+    color: #FFFFFF;
+    padding: 3px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-left: 100px;
+    height: 40px;
+    width: 30px;
+}
+
+.background {
+    background-color: #000000;
+}
+
+/* ── Dropdown menu ───────────────────────────────────────────────────────── */
+.dropbtn {
+    background-color: #121212;
+    color: #FFFFFF;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    background-color: #121212;
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    display: block;
+    color: #FFFFFF;
+}
+
+.dropdown-content a:hover {
+    background-color: #1F1F1F;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #1F1F1F;
+}
+
+.dropbtn2 {
+    background-color: #121212;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+.dropdown2 {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content2 {
+    background-color: #121212;
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+    border-radius: 5px;
+    right:100%;
+    top: -20px;
+}
+
+.dropdown-content2 a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    color: #fff;
+}
+
+.dropdown-content2 a:hover {
+    background-color: #1F1F1F;
+}
+
+.dropdown2:hover .dropdown-content2 {
+    display: block;
+}
+
+.dropdown2:hover .dropbtn2 {
+    background-color: #1F1F1F;
+}
+
+/* ── Search ──────────────────────────────────────────────────────────────── */
+.search-input {
+    background-color: #121212;
+    color: #FFFFFF;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+.search-button {
+    background-color: #121212;
+    color: #FFFFFF;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* ── Settings page ───────────────────────────────────────────────────────── */
+.settings-container {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.setting-group {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.setting-group h2 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.setting-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.setting-label {
+    font-weight: 600;
+}
+
+.setting-input {
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color, #555);
+}
+
+.setting-submit {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.danger-zone {
+    border: 1px solid #a00;
+}
+
+.delete-btn {
+    background: #a00;
+    color: white;
+}

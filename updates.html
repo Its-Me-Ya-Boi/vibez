@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vibez | Updates</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" id="computerCSS" media="screen and (min-width:900px)" href="/project/assets/dark.css">
+    <link rel="stylesheet" id="mobileCSS"   media="screen and (max-width:899px)"  href="/project/assets/darkMobile.css">
+    <script src="/project/settings/script.js" defer></script>
+    <style>
+        /* ── Update entries ── */
+        .update {
+            max-width: 700px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .update h2 {
+            margin-bottom: 0.5rem;
+            color: var(--accent, #B68CB8);
+        }
+
+        .update p {
+            margin: 0.25rem 0;
+        }
+
+        /* ── Footer ── */
+        footer {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 48px;
+            border-top: 1px solid rgba(182, 140, 184, 0.15);
+            font-size: 0.82rem;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        footer a { text-decoration: none; transition: color 0.2s; }
+        footer a:hover { color: var(--accent, #B68CB8); }
+
+        .footer-links { display: flex; gap: 24px; }
+
+        /* ── Animations ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 700px) {
+            footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+            .footer-links { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header><h1>Updates</h1></header>
+
+<main>
+    <section class="update">
+        <h2>4/13/2026</h2>
+        <p>Added like system</p>
+        <p>Added "top" page</p>
+        <p>made profile links customizable</p>
+    </section>
+    <section class="update">
+        <h2>4/12/2026</h2>
+        <p>added tags</p>
+        <p>added search</p>
+        <p>fixed some bugs</p>
+        <p>added videos/photos to comments section</p>
+    </section>
+    <section class="update">
+        <h2>4/9/2026</h2>
+        <p>Added new update section to the website.</p>
+        <p>Added "black mode" theme option.</p>
+        <p>Fixed various bugs and errors throughout the site.</p>
+        <p>Updated the to-do list page with corrected spelling for "website".</p>
+        <p>Remade settings page.</p>
+    </section>
+</main>
+
+<footer>
+    <span>© 2026 Vibez. All rights reserved.</span>
+    <div class="footer-links">
+        <a href="updates.html">Updates</a>
+        <a href="todo.html">To Do List</a>
+        <a href="about.html">About us</a>
+        <a href="help.html">Help</a>
+        <a href="/project/policies/privacy.php">Privacy</a>
+        <a href="/project/policies/terms.php">Terms</a>
+        <a href="/project/policies/cookies.php">Cookies</a>
+    </div>
+</footer>
+
+</body>
+</html>
